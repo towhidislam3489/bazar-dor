@@ -13,7 +13,7 @@ const Banner = () => {
                 <h1 className="text-4xl">আজকের বাজারের দাম এক নজরে</h1>
                 <p>চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম ও মসলার দাম — বাজারভিত্তিক বিস্তারিত, গড়, সর্বনিম্ন- <br />
                     সর্বাধিক এবং দামের পরিবর্তন এক জায়গায়।</p>
-                <button className="btn bg-[#05893E] text-white">সব পণ্য দেখুন</button>
+                <a href="#all-products"><button className="btn bg-[#05893E] text-white">সব পণ্য দেখুন</button></a>
             </div>
             <div className="">
                 <Image src={BannerImage} alt='Banner Image' height={1000} width={1000} className="h-80 w-80"></Image>

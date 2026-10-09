@@ -29,8 +29,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <NavBar></NavBar>
         <Suspense fallback={"Loading........"}>
           <CatagoryDataLoad></CatagoryDataLoad>
+          <MarqueeComp></MarqueeComp>
         </Suspense>
-        <MarqueeComp></MarqueeComp>
+        
         <main className=" mt-5">
 
           {children}

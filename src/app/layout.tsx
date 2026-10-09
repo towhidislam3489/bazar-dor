@@ -31,7 +31,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <CatagoryDataLoad></CatagoryDataLoad>
         </Suspense>
         <MarqueeComp></MarqueeComp>
-        <main className="max-w-7xl mx-auto mt-5">
+        <main className=" mt-5">
 
           {children}
         </main>

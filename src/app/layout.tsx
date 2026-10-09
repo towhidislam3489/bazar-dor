@@ -27,17 +27,21 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
 
     >
       <body className="min-h-full flex flex-col">
-        <NavBar></NavBar>
-        <Suspense fallback={"Loading........"}>
-          <CatagoryDataLoad></CatagoryDataLoad>
-          <MarqueeComp></MarqueeComp>
+        <div className="sticky top-0  z-50 bg-white">
+          <NavBar></NavBar>
+          <Suspense fallback={"Loading........"}>
+            <CatagoryDataLoad></CatagoryDataLoad>
+          </Suspense>
+        </div>
+        <Suspense>
+           <MarqueeComp></MarqueeComp>
         </Suspense>
-        
+
         <main className=" mt-5">
 
           {children}
         </main>
-        <footer>
+        <footer >
           <Footer></Footer>
         </footer>
       </body>

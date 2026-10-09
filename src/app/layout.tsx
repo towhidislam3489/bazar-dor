@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Noto_Serif_Bengali } from "next/font/google";
 import "./globals.css";
+import NavBar from "@/components/NavBar";
+import CatagoryDataLoad from "@/components/CatagoryDataLoad";
+import { Suspense } from "react";
+import MarqueeComp from "@/components/MarqueeComp";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const notoserifbenfali = Noto_Serif_Bengali({
+  // variable: "--font-geist-sans",
+  subsets: ["latin", "bengali"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,9 +21,22 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      data-theme="light"
+      className={`${notoserifbenfali.className}  h-full antialiased `}
+
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <NavBar></NavBar>
+        <Suspense fallback={"Loading........"}>
+          <CatagoryDataLoad></CatagoryDataLoad>
+        </Suspense>
+        <MarqueeComp></MarqueeComp>
+        <main className="max-w-7xl mx-auto mt-5">
+
+          {children}
+        </main>
+      </body>
     </html>
   );
 }
+

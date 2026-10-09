@@ -35,7 +35,7 @@ const AllProducts = async () => {
             <h1 className="text-2xl mb-3">  <span className="text-2xl font-bold"> সব পণ্য</span>  </h1>
             <h1 className="mb-5">মোট {total}টি পণ্য দেখানো হচ্ছে</h1>
 
-            <div className="grid grid-cols-3 gap-5">
+            <div className="grid md:grid-cols-3 gap-5">
                 {IncrimentItem.map((v, ind) => <EachCard key={ind} data={v}></EachCard>)}
             </div>
         </div>

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 
@@ -33,40 +34,42 @@ const EachCard = ({ data }: { data: Idatatype }) => {
     const isDown = data.change.dir === "down";
     const pctText = Math.abs(data.change.pct).toFixed(1) + "%";
     return (
-        <div className="bg-[#FAFCFA] border border-gray-200 p-2 rounded-[8px]">
-            {/* <Image src={data.image} alt="Image" height={600} width={600}></Image> */}
-            <div className="space-y-4">
-                <div className="flex gap-4 items-center">
-                    <div>
-                        <span className="text-3xl bg-gray-300 rounded-2xl p-1">{data.image}</span>
-                    </div>
-                    <div>
-                        <h1 className="text-[20px] font-bo">{data.nameBn}</h1>
-                        <h1>প্রতি কেজি</h1>
+        <Link href={`/EachIteams/${data.id}`}>
+            <div className="bg-[#FAFCFA] border border-gray-200 p-2 rounded-[8px]">
+                {/* <Image src={data.image} alt="Image" height={600} width={600}></Image> */}
+                <div className="space-y-4">
+                    <div className="flex gap-4 items-center">
+                        <div>
+                            <span className="text-3xl bg-gray-300 rounded-2xl p-1">{data.image}</span>
+                        </div>
+                        <div>
+                            <h1 className="text-[20px] font-bo">{data.nameBn}</h1>
+                            <h1>প্রতি কেজি</h1>
 
 
+                        </div>
                     </div>
-                </div>
-                <div className="flex justify-between">
-                    <div>
-                        <h1 className="font-semibold">আজকের দাম</h1>
-                        <span className="text-2xl">{toBanglaNumber(data.today)} </span> <span>টাকা</span>
-                    </div>
-                    <div>
-                        <span
-                            className={`font-semibold ${isUp
-                                ? "text-red-600"
-                                : isDown
-                                    ? "text-green-600"
-                                    : "text-gray-500"
-                                }`}
-                        >
-                            {isUp ? "▲" : isDown ? "▼" : "•"} {pctText}
-                        </span>
+                    <div className="flex justify-between">
+                        <div>
+                            <h1 className="font-semibold">আজকের দাম</h1>
+                            <span className="text-2xl">{toBanglaNumber(data.today)} </span> <span>টাকা</span>
+                        </div>
+                        <div>
+                            <span
+                                className={`font-semibold ${isUp
+                                    ? "text-red-600"
+                                    : isDown
+                                        ? "text-green-600"
+                                        : "text-gray-500"
+                                    }`}
+                            >
+                                {isUp ? "▲" : isDown ? "▼" : "•"} {pctText}
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </Link>
     );
 };
 

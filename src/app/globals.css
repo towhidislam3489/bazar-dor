@@ -4,3 +4,8 @@
 html {
   scroll-behavior: smooth;
 }
+
+
+.marquee-wrapper:hover * {
+  animation-play-state: paused !important;
+}

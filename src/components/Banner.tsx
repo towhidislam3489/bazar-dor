@@ -6,7 +6,7 @@ import BannerImage from '../bazar-hero.png'
 
 const Banner = () => {
     return (
-        <div className="flex items-center justify-between max-w-[70%] mx-auto  bg-[#FAFCFA] w-full px-7 rounded-2xl border border-gray-300">
+        <div className="flex items-center justify-between md:max-w-[70%] mx-auto  bg-[#FAFCFA] w-full px-7 rounded-2xl border border-gray-300">
             <div className="space-y-4 col-span-6 ">
                 
                 <button className="text-green-600 bg-green-200 px-3 rounded-[8px]"> <DateTime></DateTime></button>

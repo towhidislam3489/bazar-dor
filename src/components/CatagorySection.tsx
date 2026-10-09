@@ -16,8 +16,8 @@ const CatagorySection = ({props}:{props:IDatatype[]}) => {
     const data:IDatatype[]=props
     console.log(pathname)
     return (
-        <div className="flex gap-3 max-w-[70%] mx-auto mt-3">
-            {data.map((v,id)=> <span key={id} className={`${pathname===`/EachCatagory/${v.slug}` ? "bg-[#05893E] text-white rounded-[5px]": " "} px-3 py-2`}> <Link href={`/EachCatagory/${v.slug}`} >{v.icon} {v.nameBn}</Link> </span>)}
+        <div className="flex md:gap-3 md:max-w-[70%] mx-auto mt-3">
+            {data.map((v,id)=> <span key={id} className={`${pathname===`/EachCatagory/${v.slug}` ? "bg-[#05893E] text-white rounded-[5px]": " "} px-0.5 md:px-3 md:py-2`}> <Link href={`/EachCatagory/${v.slug}`} >{v.icon} {v.nameBn}</Link> </span>)}
         </div>
     );
 };

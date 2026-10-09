@@ -5,6 +5,7 @@ import NavBar from "@/components/NavBar";
 import CatagoryDataLoad from "@/components/CatagoryDataLoad";
 import { Suspense } from "react";
 import MarqueeComp from "@/components/MarqueeComp";
+import Footer from "@/components/Footer";
 
 const notoserifbenfali = Noto_Serif_Bengali({
   // variable: "--font-geist-sans",
@@ -36,6 +37,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
 
           {children}
         </main>
+        <footer>
+          <Footer></Footer>
+        </footer>
       </body>
     </html>
   );

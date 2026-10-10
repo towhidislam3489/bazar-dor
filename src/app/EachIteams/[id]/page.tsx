@@ -1,267 +1,4 @@
-// import React from 'react';
-// // export const instant = false;
-
-
-// interface Idatatype {
-//     id: number;
-//     slug: string;
-//     nameBn: string;
-//     category: string;
-//     categoryNameBn: string;
-//     categoryIcon: string;
-//     unit: string;
-//     image: string;
-//     today: number;
-//     yesterday: number;
-//     lastWeek: number;
-//     lastMonth: number;
-//     change: {
-//         dir: string;
-//         pct: number;
-//     };
-//     markets: [
-//         {
-//             market: string,
-//             division: string,
-//             min: number,
-//             max: number
-//         }
-//     ]
-// }
-
-// const page = async ({ params }: {
-//     params: Promise<{
-//         id: string;
-//     }>
-// }) => {
-//     function toBanglaNumber(number: string | number | null | undefined): string {
-//         if (number === null || number === undefined) return '';
-
-//         const banglaDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
-
-//         return number.toString().replace(/\d/g, (digit) => banglaDigits[Number(digit)]);
-//     }
-//     const { id } = await params;
-//     const res = await fetch(`https://api.api-store.workers.dev/api/bazardor/products/${id}`)
-//     const data: Idatatype = await res.json();
-//     let max_price = 0
-//     data.markets.map(v => max_price < v.max ? max_price = v.max : "")
-//     let min_price = max_price;
-//     data.markets.map(v => min_price > v.min ? min_price = v.min : "")
-
-//     console.log(max_price, "max");
-//     console.log(min_price, "min");
-
-//     return (
-//         <div className="max-w-[70%] mx-auto">
-//             <div>
-//                 <div className="flex gap-4 items-center bg-[#FAFCFA] border border-gray-200 rounded-2xl py-6 px-4" >
-//                     <p className="text-4xl">{data.image}</p>
-//                     <div>
-//                         <p className="text-2xl font-semibold" >{data.nameBn}</p>
-//                         <p>{`প্রতি কেজি · ${data.categoryNameBn}`}</p>
-
-//                         {data.change.dir === 'up' ? <p>{`গতকালের তুলনায় আজ দাম বেড়েছে · ${toBanglaNumber(data.today - data.yesterday)} টাকা`}</p> : data.change.dir === 'down' ? <p>{`গতকালের তুলনায় আজ দাম কমেছে · ${toBanglaNumber(data.yesterday - data.today)} টাকা`}</p> : <p>দাম একই রয়েছে</p>}
-
-//                     </div>
-//                 </div>
-//                 <div className="flex gap-4 items-center bg-[#FAFCFA] border border-gray-200 rounded-2xl py-6 px-4" >
-//                     <div className="flex justify-between">
-//                         <div className="">
-//                             <p>সর্বনিম্ন দাম</p>
-//                             <p className="text-green-500 text-2xl">{toBanglaNumber(min_price)} টাকা</p>
-//                             <p>সবচেয়ে কম দামের বাজার</p>
-//                         </div>
-//                         <div className="">
-//                             <p>সর্বাধিক দাম</p>
-//                             <p className="text-red-500 text-2xl">{toBanglaNumber(max_price)} টাকা</p>
-//                             <p>সবচেয়ে বেশি দামের বাজার</p>
-//                         </div>
-//                         <div className="">
-//                             <p>গড় দাম</p>
-//                             <p className="text-green-500 text-2xl">{toBanglaNumber((max_price+min_price)/2)} টাকা</p>
-//                             <p>প্রতি কেজি-এর হিসাবে</p>
-//                         </div>
-
-//                     </div>
-//                 </div>
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default page;
-
-
-
-
-// import React from "react";
-
-// interface Market {
-//   market: string;
-//   division: string;
-//   min: number;
-//   max: number;
-// }
-
-// interface Idatatype {
-//   id: number;
-//   slug: string;
-//   nameBn: string;
-//   category: string;
-//   categoryNameBn: string;
-//   categoryIcon: string;
-//   unit: string;
-//   image: string;
-//   today: number;
-//   yesterday: number;
-//   lastWeek: number;
-//   lastMonth: number;
-//   change: {
-//     dir: string;
-//     pct: number;
-//   };
-//   markets: Market[];
-// }
-
-// const toBanglaNumber = (
-//   number: number | string | null | undefined
-// ): string => {
-//   if (number === null || number === undefined) return "";
-
-//   const banglaDigits = "০১২৩৪৫৬৭৮৯";
-
-//   return number
-//     .toString()
-//     .replace(/\d/g, (digit) => banglaDigits[Number(digit)]);
-// };
-
-// const Page = async ({
-//   params,
-// }: {
-//   params: Promise<{ id: string }>;
-// }) => {
-//   const { id } = await params;
-
-//   const res = await fetch(
-//     `https://api.api-store.workers.dev/api/bazardor/products/${id}`
-//   );
-
-// if (!res.ok) {
-//     throw new Error("পণ্যের তথ্য লোড করা যায়নি");
-// }
-
-// const data: Idatatype = await res.json();
-
-// const markets = data.markets ?? [];
-
-// const minPrice =
-//     markets.length > 0
-//         ? Math.min(...markets.map((market) => market.min))
-//         : null;
-
-// const maxPrice =
-//     markets.length > 0
-//         ? Math.max(...markets.map((market) => market.max))
-//         : null;
-
-// const averagePrice =
-//     markets.length > 0
-//         ? markets.reduce(
-//             (total, market) => total + (market.min + market.max) / 2,
-//             0
-//         ) / markets.length
-//         : null;
-
-// return (
-//     <div className="w-full max-w-5xl mx-auto px-4 py-6">
-//         <div className="space-y-5">
-//             {/* Product information */}
-//             <div className="flex gap-4 items-center bg-[#FAFCFA] border border-gray-200 rounded-2xl p-5 sm:p-6">
-//                 <p className="text-4xl">{data.image}</p>
-
-//                 <div>
-//                     <h1 className="text-2xl font-semibold">
-//                         {data.nameBn}
-//                     </h1>
-
-//                     <p className="text-gray-600">
-//                         প্রতি {data.unit} · {data.categoryNameBn}
-//                     </p>
-
-//                     {data.change.dir === "up" ? (
-//                         <p className="text-red-600 mt-2">
-//                             গতকালের তুলনায় আজ দাম বেড়েছে ·{" "}
-//                             {toBanglaNumber(data.today - data.yesterday)} টাকা
-//                         </p>
-//                     ) : data.change.dir === "down" ? (
-//                         <p className="text-green-600 mt-2">
-//                             গতকালের তুলনায় আজ দাম কমেছে ·{" "}
-//                             {toBanglaNumber(data.yesterday - data.today)} টাকা
-//                         </p>
-//                     ) : (
-//                         <p className="text-gray-600 mt-2">
-//                             দাম একই রয়েছে
-//                         </p>
-//                     )}
-//                 </div>
-//             </div>
-
-//             {/* Price summary */}
-//             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-//                 <div className="bg-white border border-gray-200 rounded-2xl p-5">
-//                     <p className="text-gray-600">সর্বনিম্ন দাম</p>
-
-//                     <p className="text-green-600 text-2xl font-semibold mt-2">
-//                         {minPrice !== null
-//                             ? `${toBanglaNumber(minPrice)} টাকা`
-//                             : "তথ্য নেই"}
-//                     </p>
-
-//                     <p className="text-sm text-gray-500 mt-2">
-//                         সবচেয়ে কম দামের বাজার
-//                     </p>
-//                 </div>
-
-//                 <div className="bg-white border border-gray-200 rounded-2xl p-5">
-//                     <p className="text-gray-600">সর্বাধিক দাম</p>
-
-//                     <p className="text-red-600 text-2xl font-semibold mt-2">
-//                         {maxPrice !== null
-//                             ? `${toBanglaNumber(maxPrice)} টাকা`
-//                             : "তথ্য নেই"}
-//                     </p>
-
-//                     <p className="text-sm text-gray-500 mt-2">
-//                         সবচেয়ে বেশি দামের বাজার
-//                     </p>
-//                 </div>
-
-//                 <div className="bg-white border border-gray-200 rounded-2xl p-5">
-//                     <p className="text-gray-600">গড় দাম</p>
-
-//                     <p className="text-blue-600 text-2xl font-semibold mt-2">
-//                         {averagePrice !== null
-//                             ? `${toBanglaNumber(
-//                                 Number(averagePrice.toFixed(2))
-//                             )} টাকা`
-//                             : "তথ্য নেই"}
-//                     </p>
-
-//                     <p className="text-sm text-gray-500 mt-2">
-//                         বাজারগুলোর গড় দাম
-//                     </p>
-//                 </div>
-//             </div>
-//         </div>
-//     </div>
-// );
-// };
-
-// export default Page;
-
-
-
+import { Metadata } from "next";
 import React from "react";
 
 interface Market {
@@ -308,6 +45,40 @@ function toBanglaNumber(
     .replace(/\d/g, (digit) => banglaDigits[Number(digit)]);
 }
 
+// Generate dynamic metadata
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const { id } = await params;
+
+  try {
+    const res = await fetch(
+      `https://api.abcz.workers.dev/api/bazardor/products/${id}`
+    );
+
+    if (!res.ok) {
+      return {
+        title: "পণ্যের বাজারদর",
+        description: "বাজারদরের তথ্য",
+      };
+    }
+
+    const data: Idatatype = await res.json();
+
+    return {
+      title: `${data.nameBn} - আজকের বাজারদর`,
+      description: `${data.nameBn} এর আজকের বাজারদর, সর্বনিম্ন ও সর্বাধিক দাম এবং বাজারভিত্তিক দামের তালিকা।`,
+    };
+  } catch {
+    return {
+      title: "পণ্যের বাজারদর",
+      description: "বাজারদরের তথ্য",
+    };
+  }
+}
+
 const Page = async ({
   params,
 }: {
@@ -339,7 +110,7 @@ const Page = async ({
       ? Math.max(...markets.map((market) => market.max))
       : null;
 
-  // সব বাজারের মধ্যবর্তী দামের গড়
+  // সব বাজারের মধ্যবর্তী দামের গড়
   const averagePrice =
     markets.length > 0
       ? markets.reduce(

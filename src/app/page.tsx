@@ -2,8 +2,12 @@ import AllProducts from "@/components/AllProducts";
 import Banner from "@/components/Banner";
 import Decrement from "@/components/Decriment";
 import Incrasing from "@/components/Incrasing";
+import { Metadata } from "next";
 import { Suspense } from "react";
-
+export const metadata: Metadata = {
+  title: "Home",
+  description: "Home",
+};
 
 const page = () => {
 

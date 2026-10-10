@@ -53,7 +53,7 @@ export default function SignupForm() {
     const handleSocialSignUp = async (provider: 'google' | 'github') => {
         await authClient.signIn.social({
             provider,
-            callbackURL: '/dashboard',
+            callbackURL: '/',
         });
     };
 

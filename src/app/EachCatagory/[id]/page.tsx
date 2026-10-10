@@ -38,7 +38,7 @@ const page = async ({ params }: {
         return number.toString().replace(/\d/g, (digit) => banglaDigits[Number(digit)]);
     }
     const { id } = await params;
-    const res = await fetch(`https://api.api-store.workers.dev/api/bazardor/products?category=${id}`)
+    const res = await fetch(`https://api.abcz.workers.dev/api/bazardor/products?category=${id}`)
     const data: Idatatype[] = await res.json();
 
   

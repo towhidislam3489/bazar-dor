@@ -22,7 +22,7 @@ interface Idatatype {
 }
 
 const AllProducts = async () => {
-    const res = await fetch("https://api.api-store.workers.dev/api/bazardor/products");
+    const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products");
     const data: Idatatype[] = await res.json();
 
     const IncrimentItem = data;

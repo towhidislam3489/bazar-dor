@@ -316,7 +316,7 @@ const Page = async ({
   const { id } = await params;
 
   const res = await fetch(
-    `https://api.api-store.workers.dev/api/bazardor/products/${id}`
+    `https://api.abcz.workers.dev/api/bazardor/products/${id}`
   );
 
   if (!res.ok) {

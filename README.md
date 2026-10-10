@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 বাজার দর (BazarDor)
 
-## Getting Started
+### Daily Market Price Tracker for Bangladesh 🇧🇩
 
-First, run the development server:
+**বাজার দর** is a responsive web application that helps users explore daily market prices of essential products in Bangladesh. It provides product-wise price information, daily price changes, category-based browsing, and detailed market price comparisons through a clean and user-friendly interface.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+🔗 **Live Demo:** [Visit BazarDor](https://your-live-demo-url.vercel.app)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ✨ Key Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **📊 Daily Price Tracking:** View today's prices, previous prices, and percentage changes for essential products.
+- **📈 Price Trend Sections:** Explore products with increasing and decreasing prices through dedicated sections.
+- **🛍️ Product Categories:** Browse products by category and sort them by price in ascending or descending order.
+- **🔎 Product Details:** View product information, minimum price, maximum price, average price, and market-wise price comparisons.
+- **🔐 Secure Authentication:** Sign up and sign in using email and password, Google, or GitHub with Better Auth.
+- **📱 Fully Responsive Design:** Optimized layouts for mobile phones, tablets, and desktop devices.
+- **⚡ Interactive UI:** Includes a scrolling price ticker, product cards, loading states, and toast notifications.
+- **🧭 Protected Routes:** Restrict access to product details for authenticated users.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠️ Technologies Used
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Technology | Purpose |
+|---|---|
+| Next.js | React framework and routing |
+| React | Building reusable UI components |
+| TypeScript | Type-safe development |
+| Tailwind CSS | Responsive styling |
+| Better Auth | Authentication and session management |
+| MongoDB | Database integration, if configured |
+| JavaScript / ES6+ | Application logic |
+| Git & GitHub | Version control and project hosting |
+| Vercel | Deployment |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📂 Project Overview
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+BazarDor provides a simple way to explore essential product prices and understand daily market movements.
+
+- **Home Page:** Highlights rising prices, falling prices, and all available products.
+- **Category Pages:** Display category-specific products with sorting options.
+- **Product Details:** Present price summaries and market-wise price information.
+- **Authentication Pages:** Allow users to register and sign in.
+- **Responsive Navigation:** Provides category links, authentication controls, and a live-style price ticker.
+
+---
+
+## 🎯 Project Goals
+
+- Make essential product prices easier to explore.
+- Present daily price changes in a clear and understandable format.
+- Help users compare prices across different markets.
+- Provide a responsive and accessible browsing experience.
+- Practice modern web development using Next.js, TypeScript, and authentication.
+
+---
+
+## ⚠️ Disclaimer
+
+Market prices displayed in BazarDor are for informational purposes only. Actual prices may vary depending on location, market conditions, product quality, and availability.
+
+---
+
+## 👨‍💻 Developer
+
+**Towhid Islam**
+
+- GitHub: [@towhidislam3489](https://github.com/towhidislam3489)
+- LinkedIn: [Towhid Islam](https://linkedin.com/in/towhidislam77/)
+
+---
+
+⭐ If you find this project useful, consider giving the repository a star!
+
+

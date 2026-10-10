@@ -1,6 +1,7 @@
 import EachCard from '@/components/EachCard';
 import React from 'react';
 import NotFound from './not-found';
+import SortedCards from './SortedCard';
 
 
 
@@ -53,26 +54,14 @@ const page = async ({ params }: {
                         <p>{`${toBanglaNumber(tot)}টি পণ্যের আজকের দাম ও পরিবর্তন`}</p>
                     </div>
                 </div>
-                <div className=" items-center bg-[#FAFCFA] border border-gray-200 rounded-2xl py-6 px-4" >
-                    <div className="flex items-center gap-3">
-                        <label className="label-text">সাজান</label>
-                        <div className="select-wrapper">
-                            <select id="sort-options">
-                                <option value="default">ডিফল্ট</option>
-                                <option value="low-to-high">কম থেকে বেশি</option>
-                                <option value="high-to-low">বেশি থেকে কম</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
+                
 
-                <p>{`মোট ${toBanglaNumber(tot)}টি পণ্য দেখানো হচ্ছে`}</p>
+                {/* <p>{`মোট ${toBanglaNumber(tot)}টি পণ্য দেখানো হচ্ছে`}</p> */}
 
-                <div className="grid  md:grid-cols-3 gap-4">
+                {/* <div className="grid  md:grid-cols-3 gap-4">
                     {data.map(v => <EachCard key={v.id} data={v}></EachCard>)}
-                </div>
-
-
+                </div> */}
+                <SortedCards data={data}></SortedCards>
 
 
             </div>}

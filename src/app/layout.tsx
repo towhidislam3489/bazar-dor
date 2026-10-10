@@ -29,7 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <div className="sticky top-0  z-50 bg-white">
           <NavBar></NavBar>
-          <Suspense fallback={"Loading........"}>
+          <Suspense>
             <CatagoryDataLoad></CatagoryDataLoad>
           </Suspense>
         </div>

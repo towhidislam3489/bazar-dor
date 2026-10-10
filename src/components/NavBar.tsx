@@ -4,6 +4,7 @@ import Image from 'next/image';
 import NavLogo from "../images2.png"
 import DateTime from './DateTime';
 import Link from 'next/link';
+import NavButton from './NavButton';
 
 const NavBar = () => {
 
@@ -20,10 +21,7 @@ const NavBar = () => {
                             <div className="text-[15px]"><DateTime></DateTime></div>
                         </div>
                     </div>
-                    <div className="flex gap-3">
-                        <button className="btn ">সাইন ইন</button>
-                        <button className="btn bg-[#05893E] text-white">সাইন আপ</button>
-                    </div>
+                    <NavButton></NavButton>
                 </div>
                 <hr className="border border-gray-300" />
             </div>

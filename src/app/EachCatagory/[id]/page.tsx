@@ -41,9 +41,9 @@ const page = async ({ params }: {
     const res = await fetch(`https://api.api-store.workers.dev/api/bazardor/products?category=${id}`)
     const data: Idatatype[] = await res.json();
 
-    console.log(data);
+  
     const tot = data.reduce((acc) => acc + 1, 0);
-    console.log(tot);
+
     return (
         <div>
             {tot === 0 ? NotFound() : <div className="max-w-[70%] mx-auto space-y-4">

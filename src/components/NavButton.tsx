@@ -29,7 +29,7 @@ const NavButton = () => {
                 </div>
             ) : session?.user ? (
                 <div className="flex items-center gap-3">
-                    <span>Welcome, {session.user.name}</span>
+                    <span>Welcome, <Link href={'/profile'}>{session.user.name}</Link></span>
                     <button className="btn bg-red-500 text-white" onClick={handleSignOut}>
                         Sign out
                     </button>

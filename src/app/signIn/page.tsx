@@ -6,6 +6,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { FaGithub } from 'react-icons/fa';
 import { authClient } from '@/lib/auth-client';
 import { redirect, useRouter } from 'next/navigation';
+import { Bounce, toast } from 'react-toastify';
 
 export default function SigninForm() {
     const router = useRouter();
@@ -25,14 +26,36 @@ export default function SigninForm() {
         const { data, error } = await authClient.signIn.email({
             email,
             password,
-           
+
         });
 
         if (error) {
+            toast.error(error.message, {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
+            });
             setErrorMsg(error.message || 'সাইন ইন ব্যর্থ হয়েছে। সঠিক ইমেইল ও পাসওয়ার্ড দিন।');
         } else {
+            toast.success('SignIn successfull', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
+            });
             redirect('/');
-            
+
         }
 
     };
@@ -90,10 +113,10 @@ export default function SigninForm() {
                     {/* Submit Button */}
                     <button
                         type="submit"
-                        disabled={loading}
-                        className="w-full py-3 bg-[#0d8239] hover:bg-[#0b6f30] disabled:bg-gray-400 text-white font-medium rounded-lg transition duration-200 text-sm shadow-sm"
+                      
+                        className="w-full py-3 bg-[#0d8239] hover:bg-[#0b6f30]  text-white font-medium rounded-lg transition duration-200 text-sm shadow-sm"
                     >
-                        {loading ? 'লগইন করা হচ্ছে...' : 'সাইন ইন'}
+                        { 'সাইন ইন'}
                     </button>
                 </form>
 

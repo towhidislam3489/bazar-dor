@@ -6,6 +6,7 @@ import CatagoryDataLoad from "@/components/CatagoryDataLoad";
 import { Suspense } from "react";
 import MarqueeComp from "@/components/MarqueeComp";
 import Footer from "@/components/Footer";
+import { ToastContainer } from "react-toastify";
 
 const notoserifbenfali = Noto_Serif_Bengali({
   // variable: "--font-geist-sans",
@@ -40,6 +41,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main className=" mt-5">
 
           {children}
+          <ToastContainer />
+
         </main>
         <footer >
           <Footer></Footer>
